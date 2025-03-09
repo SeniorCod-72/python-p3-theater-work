@@ -21,7 +21,12 @@ class Role(Base):
         hired = column(Boolean, default = False)
         role_id = column(Integer, ForeignKey("roles.id"))
         
-        role = relationship('Role' back_populates='auditions')
+        role = relationship('Role', back_populates='auditions')
+
+        def call_back(self):
+             self.hired = True
+
+             
 
 
         
